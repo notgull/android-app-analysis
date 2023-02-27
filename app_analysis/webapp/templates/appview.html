@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}App Analysis{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <h2>{{ app.app_name }}</h2>
+    {% if app.done_analyzing %}
+    <ul>
+        <p>ID: {{ app.app_id }}</p>
+        <p>Developer: {{ app.developer }}</p>
+        <p>Category: {{ app.category }}</p>
+        <p>Summary: {{ app.summary }}</p>
+    </ul>
+
+    <h2>Vulnerabilities:</h2>
+
+    <ul>
+        {% for vuln in app.vulnerabilities %}
+        <li>
+            <p>{{ vuln.vulnname }}</p>
+            <p>CWE: {{ vuln.cwe }}</p>
+            <p>OWASP Mobile: {{ vuln.owasp_mobile }}</p>
+            <p>Description: {{ vuln.descript }}</p>
+            <p>Severity: {{ vuln.severity }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>App is still being analyzed.</p>
+    {% endif %}
+{% endblock %}

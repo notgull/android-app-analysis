@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Homepage{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="get" action="{{ url_for('search') }}">
+        <input type="text" name="q" placeholder="Search query">
+        <input type="submit" value="Search">
+    </form>
+
+    {% for result in results %}
+        <div class="result">
+            <h2>
+                <a href="{{ url_for('app', id=result.id) }}">
+                    {{ result.title }}
+                </a>
+
+                {% if result.analysis_state == 0 %}
+                    <span class="state">Not analyzed</span>
+                {% elif result.analysis_state == 1 %}
+                    <span class="state">Analyzing</span>
+                {% elif result.analysis_state == 2 %}
+                    <span class="state">Analyzed</span>
+                {% endif %}
+            </h2>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{
+  "name": "gplay_scrape",
+  "version": "0.0.0",
+  "description": "Downloads the given number of packages from Google Play's free category",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Nunley",
+  "license": "AGPL-3.0-or-later",
+  "dependencies": {
+    "google-play-scraper": "^9.1.1"
+  }
+}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Homepage{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>Total Apps Analyzed: {{ apps_analyzed }} out of {{ total_apps }}</p>
+<p>Total Vulnerabilities Found: {{ total_vulns }}</p>
+<p>Apps with more than 5 vulnerabilities: {{ more_than_5 }}</p>
+<p>Apps with more than 10 vulnerabilities: {{ more_than_10 }}</p>
+<p>Apps with more than 20 vulnerabilities: {{ more_than_20 }}</p>
+{% endblock %}
